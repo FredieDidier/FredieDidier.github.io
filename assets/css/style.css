@@ -1,0 +1,354 @@
+/* ---------------------------------------------------------------
+   Fredie Didier — personal academic site
+   Palette: deep petrol blue on warm sand
+   --------------------------------------------------------------- */
+
+:root {
+  --petrol:        #1f4e5f;
+  --petrol-dark:   #163b48;
+  --petrol-light:  #2e6b80;
+  --sand:          #faf7f2;
+  --sand-deep:     #f1ece3;
+  --ink:           #1c1b19;
+  --ink-soft:      #4a4844;
+  --ink-faint:     #6f6c66;
+  --rule:          #ddd6ca;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+
+  --measure: 46rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;      /* 18px base — deliberately generous */
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- layout ---------- */
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main { padding-bottom: 5rem; }
+
+/* ---------- masthead / nav ---------- */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--sand);
+}
+
+.masthead .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.masthead__name {
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.masthead__name:hover { color: var(--petrol); }
+
+.nav {
+  display: flex;
+  gap: 1.75rem;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+}
+
+.nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--petrol); }
+.nav a[aria-current="page"] {
+  color: var(--petrol);
+  border-bottom-color: var(--petrol);
+  font-weight: 600;
+}
+
+/* ---------- hero (home) ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 2.75rem;
+  align-items: start;
+  padding: 3.5rem 0 2.5rem;
+}
+
+.hero__photo {
+  width: 190px;
+  height: 190px;
+  border-radius: 3px;
+  object-fit: cover;
+  display: block;
+  background: var(--sand-deep);
+  border: 1px solid var(--rule);
+}
+
+.hero h1 {
+  font-size: 2.375rem;
+  line-height: 1.15;
+  margin: -0.35rem 0 0.4rem;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.hero__role {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--petrol);
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.hero__affil {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--ink-faint);
+  margin: 0 0 1.25rem;
+}
+
+/* ---------- inline link list (contact / profiles) ---------- */
+
+.linkrow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+}
+
+.linkrow a { color: var(--petrol); }
+
+/* ---------- typography ---------- */
+
+h2 {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--petrol);
+  margin: 3rem 0 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 2rem 0 0.2rem;
+}
+
+p { margin: 0 0 1.15rem; }
+
+a { color: var(--petrol); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--petrol-light); }
+
+strong { font-weight: 600; }
+
+.lede { font-size: 1.1875rem; }
+
+/* ---------- research entries ---------- */
+
+.entry { margin-top: 2.25rem; }
+.entry:first-of-type { margin-top: 1.75rem; }
+
+.entry__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.3rem;
+}
+
+.entry__authors {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--ink-faint);
+  margin: 0 0 0.5rem;
+}
+
+.entry__links {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--petrol);
+  background: var(--sand-deep);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+  vertical-align: 2px;
+}
+
+/* ---------- CV page ---------- */
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+.btn {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--sand);
+  background: var(--petrol);
+  border: 1px solid var(--petrol);
+  border-radius: 3px;
+  padding: 0.5rem 1.1rem;
+}
+.btn:hover { background: var(--petrol-dark); color: var(--sand); }
+
+.btn--ghost { color: var(--petrol); background: transparent; }
+.btn--ghost:hover { background: var(--sand-deep); color: var(--petrol-dark); }
+
+/* dated CV rows: title left, date right */
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.25rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.item__head { font-size: 1.0625rem; font-weight: 600; line-height: 1.4; margin: 0; }
+
+.item__date {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  padding-top: 0.28rem;
+}
+
+.item__sub {
+  grid-column: 1 / -1;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--petrol);
+  margin: 0;
+}
+
+.item__body {
+  grid-column: 1 / -1;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 0.35rem 0 0;
+}
+
+/* embedded CV PDF viewer */
+.pdf-frame {
+  margin-top: 2rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--sand-deep);
+  overflow: hidden;
+}
+
+.pdf-frame object {
+  display: block;
+  width: 100%;
+  height: 88vh;
+  min-height: 34rem;
+  border: 0;
+}
+
+.pdf-fallback {
+  margin: 0;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 4rem;
+  padding: 1.75rem 0 3rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-faint);
+}
+.footer p { margin: 0; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  body { font-size: 1.0625rem; }
+
+  .masthead .wrap { flex-direction: column; align-items: flex-start; }
+  .nav { gap: 1.25rem; flex-wrap: wrap; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+  }
+  .hero__photo { width: 150px; height: 150px; }
+  .hero h1 { font-size: 1.9375rem; margin-top: 0; }
+
+  .item { grid-template-columns: 1fr; }
+  .item__date { padding-top: 0; }
+
+  /* Mobile browsers mostly refuse to render <object> PDFs inline and show a
+     blank box instead of the fallback. Hide the embed and let the download
+     buttons carry the CV tab on small screens. */
+  .pdf-frame { display: none; }
+}
+
+/* ---------- print (CV page) ---------- */
+
+@media print {
+  body { background: #fff; font-size: 10.5pt; }
+  .masthead, .footer, .cv-actions { display: none; }
+  a { color: #000; text-decoration: none; }
+  h2 { color: #000; margin-top: 1.4rem; }
+  .wrap { max-width: none; padding: 0; }
+}

@@ -1,0 +1,107 @@
+%% ---------------------------------------------------------------
+%% Shared preamble for cv-en.tex and cv-pt.tex
+%% Edit layout/colours/macros here once; both languages pick it up.
+%% ---------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%% --- page geometry: generous margins, academic feel -------------
+\usepackage[top=2.2cm,bottom=2.2cm,left=2.4cm,right=2.4cm]{geometry}
+
+%% --- fonts ------------------------------------------------------
+%% XeLaTeX gets a proper old-style serif; pdfLaTeX degrades gracefully.
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \setmainfont{Palatino}[
+    Scale        = 1.0,
+    Ligatures    = TeX,
+    BoldFont     = {Palatino Bold},
+    ItalicFont   = {Palatino Italic}
+  ]
+  %% Ligatures=TeX is required here too, otherwise -- and --- in dates and
+  %% affiliations render as literal hyphens instead of en/em dashes.
+  \newfontfamily\headingfont{Helvetica Neue}[Scale=1.0, Ligatures=TeX]
+\else
+  \usepackage{lmodern}
+  \newcommand{\headingfont}{\sffamily}
+\fi
+
+\usepackage{microtype}
+
+%% --- colours: petrol blue, matching the website -----------------
+\usepackage{xcolor}
+\definecolor{petrol}{HTML}{1F4E5F}
+\definecolor{inksoft}{HTML}{4A4844}
+\definecolor{rule}{HTML}{DDD6CA}
+
+\usepackage[
+  colorlinks = true,
+  urlcolor   = petrol,
+  linkcolor  = petrol,
+  pdfauthor  = {Fredie Didier}
+]{hyperref}
+
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+
+%% --- no page numbers on a two-page CV ---------------------------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.08}
+
+%% ---------------------------------------------------------------
+%% Section headings: uppercase, letterspaced, petrol, ruled
+%% ---------------------------------------------------------------
+%% The uppercasing must stay wrapped in \sectiontitle and sit in titlesec's
+%% before-code slot. Put \MakeUppercase in the format slot and it leaks into
+%% the trailing rule, uppercasing \color{rule} into \color{RULE} — undefined.
+\newcommand{\sectiontitle}[1]{\MakeUppercase{#1}}
+
+\titleformat{\section}
+  {\headingfont\bfseries\fontsize{10}{12}\selectfont\color{petrol}}
+  {}{0pt}{\sectiontitle}[\vspace{2pt}\color{rule}\hrule height 0.6pt]
+\titlespacing*{\section}{0pt}{16pt}{8pt}
+
+%% ---------------------------------------------------------------
+%% \entry{Title}{Date}{Affiliation}{Description}
+%% Title flush left, date flush right, affiliation and body below.
+%% Leave {} empty to omit affiliation or description.
+%% ---------------------------------------------------------------
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & {\headingfont\fontsize{9}{11}\selectfont\color{inksoft}#2}
+  \end{tabularx}%
+  \ifx\relax#3\relax\else
+    \vspace{1pt}\\*{\headingfont\fontsize{9.5}{12}\selectfont\color{petrol}#3}%
+  \fi
+  \ifx\relax#4\relax\else
+    \vspace{2pt}\\*{\fontsize{10}{13}\selectfont\color{inksoft}#4}%
+  \fi
+  \vspace{9pt}\par
+}
+
+%% \paper{Title}{Coauthors} — for working papers / work in progress
+\newcommand{\paper}[2]{%
+  \textbf{#1}%
+  \ifx\relax#2\relax\else
+    \\*{\headingfont\fontsize{9.5}{12}\selectfont\color{inksoft}#2}%
+  \fi
+  \vspace{8pt}\par
+}
+
+%% \cvheader{tagline} — name plus contact line
+\newcommand{\cvheader}{%
+  {\fontsize{22}{26}\selectfont\bfseries Fredie Didier}\\[5pt]
+  {\headingfont\fontsize{9.5}{13}\selectfont\color{inksoft}
+    \href{mailto:fdidier@terra.com.br}{fdidier@terra.com.br}
+    \quad\textbar\quad
+    \href{https://github.com/FredieDidier}{github.com/FredieDidier}
+    \quad\textbar\quad
+    \href{https://frediedidier.github.io}{frediedidier.github.io}
+  }
+  \vspace{6pt}
+}
