@@ -36,7 +36,9 @@ both languages pick it up. Two macros do all the work:
 - `\entry{Title}{Date}{Affiliation}{Description}` — dated rows (education, positions,
   RA work, teaching). Title flush left, date flush right. Pass `{}` to omit the
   affiliation or the description.
-- `\paper{Title}{Coauthors}` — papers. Pass `{}` for solo work.
+- `\paper[Status]{Title}{Coauthors}` — papers. Pass `{}` for solo work. The optional
+  first argument prints a small petrol tag (`\paper[Submitted]{...}{...}`) at the end
+  of the coauthor line; leave it off for untagged papers.
 
 Paper titles stay in English in both versions, since the papers are written in English.
 

@@ -84,11 +84,24 @@
   \vspace{9pt}\par
 }
 
-%% \paper{Title}{Coauthors} — for working papers / work in progress
-\newcommand{\paper}[2]{%
-  \textbf{#1}%
-  \ifx\relax#2\relax\else
-    \\*{\headingfont\fontsize{9.5}{12}\selectfont\color{inksoft}#2}%
+%% \paper[Status]{Title}{Coauthors} — for working papers / work in progress.
+%% The optional first argument is a small petrol tag ("Submitted", "R&R") that
+%% rides at the end of the coauthor line, mirroring the website's .tag style.
+%% It sits there rather than after the title because a title that already fills
+%% its line has no room left for it and runs into the margin.
+\newcommand{\statustag}[1]{%
+  \mbox{\fontsize{7.5}{9}\selectfont\bfseries\color{petrol}\MakeUppercase{#1}}%
+}
+
+\newcommand{\paper}[3][]{%
+  \textbf{#2}%
+  \ifx\relax#3\relax
+    \ifx\relax#1\relax\else
+      \\*{\headingfont\fontsize{9.5}{12}\selectfont\statustag{#1}}%
+    \fi
+  \else
+    \\*{\headingfont\fontsize{9.5}{12}\selectfont\color{inksoft}#3%
+      \ifx\relax#1\relax\else\quad\statustag{#1}\fi}%
   \fi
   \vspace{8pt}\par
 }
