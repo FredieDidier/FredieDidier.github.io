@@ -150,6 +150,7 @@ main { padding-bottom: 5rem; }
 }
 
 .linkrow a { color: var(--petrol); }
+.linkrow + .linkrow { margin-top: 0.25rem; }
 
 /* ---------- typography ---------- */
 
@@ -160,7 +161,7 @@ h2 {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--petrol);
-  margin: 3rem 0 0;
+  margin: 3rem 0 1.25rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--rule);
 }
@@ -184,7 +185,7 @@ strong { font-weight: 600; }
 /* ---------- research entries ---------- */
 
 .entry { margin-top: 2.25rem; }
-.entry:first-of-type { margin-top: 1.75rem; }
+h2 + .entry { margin-top: 1.75rem; }
 
 .entry__title {
   font-size: 1.125rem;
@@ -263,6 +264,7 @@ strong { font-weight: 600; }
   font-size: 0.875rem;
   color: var(--ink-faint);
   white-space: nowrap;
+  margin: 0;
   padding-top: 0.28rem;
 }
 
