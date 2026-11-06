@@ -142,15 +142,14 @@ main { padding-bottom: 5rem; }
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
   gap: 0.5rem 1.25rem;
   font-family: var(--sans);
   font-size: 0.9375rem;
 }
 
 .linkrow a { color: var(--petrol); }
-.linkrow + .linkrow { margin-top: 0.25rem; }
 
 /* ---------- typography ---------- */
 
@@ -346,6 +345,10 @@ h2 + .entry { margin-top: 1.75rem; }
 }
 
 /* ---------- print (CV page) ---------- */
+
+@media (max-width: 380px) {
+  .linkrow { grid-template-columns: 1fr; }
+}
 
 @media print {
   body { background: #fff; font-size: 10.5pt; }
