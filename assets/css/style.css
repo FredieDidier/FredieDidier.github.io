@@ -325,7 +325,7 @@ h2 + .entry { margin-top: 1.75rem; }
   body { font-size: 1.0625rem; }
 
   .masthead .wrap { flex-direction: column; align-items: flex-start; }
-  .nav { gap: 1.25rem; flex-wrap: wrap; }
+  .nav { gap: 0.5rem 1rem; flex-wrap: wrap; }
 
   .hero {
     grid-template-columns: 1fr;
